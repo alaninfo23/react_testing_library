@@ -1,16 +1,12 @@
 import { Dropdown } from './Dropdown';
-
 import { screen, render, userEvent} from '../../tests';
-
-/**
- */
 
 const title = "Selecione o Pokémon"
 const options = ['Bulbasaur', 'Squirtle', 'Charmeleon'];
 
 describe('Dropdown', () => {
     // 1. Dropdown comece fechado
-    it('should start closed', () => {
+    it('should start closed', () => { //deve começar fechado
         render(<Dropdown title={title} options={options} onSelect={() => {}}/>);
         
         expect(screen.queryByText(options[0])).not.toBeInTheDocument();
@@ -19,7 +15,7 @@ describe('Dropdown', () => {
         
     });
     //2. Quero que o dropdown mostre as opções de menu quando ele for clicado
-    it('should show options when open', () => {
+    it('should show options when open', () => { //deve mostrar opções quando aberto
         render(<Dropdown title={title} options={options} onSelect={() => {}}/>);
         
         expect(screen.queryByText(options[0])).not.toBeInTheDocument();
@@ -40,7 +36,7 @@ describe('Dropdown', () => {
             });
             
 //3. Quando selecionar um item de menu, fechar o dropdown e indicar qual opção foi selecionada
-it('should signal an option was selected and close the dropdown', () => {
+it('should signal an option was selected and close the dropdown', () => { //deve sinalizar que uma opção foi selecionada e fechar o menu suspenso'
     const onSelect = jest.fn();
     render(<Dropdown title={title} options={options} onSelect={onSelect}/>);
     
